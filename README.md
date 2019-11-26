@@ -1,6 +1,6 @@
 # virtualEye
 
-virtualEye allows the sightless people to visualise the world around them virtually.
+virtualEye as the name suggests allows the sightless people to visualise the world around them virtually.
 
 ## Installation
 
