@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "visionapp98",
+  "private_key_id": "66ae4c69af594c4ffd80b8dcdad973dd67db5b3d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCr7CVCmPJsXcAe\nfQNRXN2wXhheFfFX6mYB/i8IjnkdxAIPX5Vi6y//albFImwfzpFZJlS4ep0gj7Mx\nT+8SSfD4YRDqBtx6/MPfeAq8Z8aZb48jwLgV03pd5qWFC+7YJ2lBU3nNmdERmjCY\nEQi2BI1+2qVxed7J0aPR70Hkc/Lj9hhgNXW0s89W+rrrBIP0ttrB3a4RnZRno2nf\nH+yXYF9ihQmuagV4xjjLtw4wgcFYmSjj1kU3848t8E/CfQw+eZT2Npxp9b2zHN9D\nU/qdWtpfd+qEiWgDk3lpTkWH6r4748NZhlNoiNQpo3TAmf2t1OMWgyizX7ko8+DB\nqPUSp5wTAgMBAAECggEAAwdRbrdoCd2q7T6RiOTkaN93eWzUiBJygpV6OaHc41fZ\nG3E5Hfl7qnmylp1xHyxR5iqlMmzCiNjPNM6uLPnNe2qmVCET0DzUrIKeWcxQNNLA\nyEX0WDoV/UJ7ZvkbV4Z2NbblPeh4ROGc+ojOSPqSjYoHgRS/BnohcyjOVdpvDHH5\ndr6ys/bNCBIikyMUtfXVcvViHZRMJbMX3rN2oSEvDuBpbJFX9ZCjKSN1Pn4eni5e\nKE14rg0Q7ZcW2dDPOLNPPmS30W7WaZIwiV5yV8ZnUwIlhT+3+8/B79dLdYZp3vtj\nUP1N25CK4VwGDGKzJwRI60coYNnwbLHHkEzAv9KvBQKBgQDl++JPwy8kPVAyqIBY\nKZMGzQdKvDGJ1vYTF6QMaqtyJhYJ0uWd4kdBnsGEciYVfFPwOdZrNhiqo5smaWLI\nAaJuhwuPKC2D65COeKFoNx3rdZh925aGnQqpwTdDr5cycHnu70fyq84oY+6QL85s\nh1RRUlbzpKrncXTQpOHUCT93HwKBgQC/XtsyqFfES9qBxN2RAlf1CrdT7lTuEnQA\n5nQnABE9fi+8kEmjJUaX4G6ieokajaqXwM9nsdzkndeO7TCndu4AeLYludIEP9Hr\nHE1M1Zu0nX1MMrUvVfYTC0SCKYMFjbZDpTM2vxRgn7MHSch0RqsobOaLwZS3aS0u\n6rR97e0AjQKBgEIv/JCx/qYyUxtRLSaySFMDvJ6AjM07pTQXcKn2JQND/MG1BUor\n7g/vjYf9hgJW9p1DN/dA6VZqoWMrnzcqaUHf8a6whHDb4Y1vIByrCBxUip9mC+sP\n1RrHtYzwQtZMUns2OAGZ+knbgLPUXlcTl2uUA9w4vsq+9zx4x1lLlA1HAoGBAJFC\nnTv8kHJN6ZRrLIuvrbgw5CtvU0RK+YbdZvlbkbqNmAqXs22FE+qgzxnBzWQ8eGss\nTcK2PafDMCYrYK0dF1eASTKltAbJsru2Be72jXQxvzQhoWpG47xc5ymt/OgwQ1Nh\niFhb/knBrxEvLlskcTMERpN64zm9OjDMsyiLe0TZAoGBAI/BQOy6EqFZqkuxiqP5\n5qbSG8oIORmT6b24uSmEWFoxWUBdFdUk/4WughBR2ClkjtQZ7aYtgnBvUDT6eZSV\n6Cfg3jHQtBIfKtZayvAEdVEKW8Jf3bk/u/4dHdh1TOGazy/lIipxxf1KXyifL+9g\nMU+XWmT3bHIHjjFhJp6bamZm\n-----END PRIVATE KEY-----\n",
+  "client_email": "blackdevil98-api@visionapp98.iam.gserviceaccount.com",
+  "client_id": "117133094526221894705",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/blackdevil98-api%40visionapp98.iam.gserviceaccount.com"
+}

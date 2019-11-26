@@ -1,0 +1,27 @@
+{
+  "name": "virtualeye",
+  "version": "1.0.0",
+  "description": "virtualEye as the name suggests allows the sightless people to visualise the world around them virtually.",
+  "main": "vision.js",
+  "scripts": {
+    "start": "nodemon vision.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingeniousambivert/virtualEye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ingeniousambivert/virtualEye/issues"
+  },
+  "homepage": "https://github.com/ingeniousambivert/virtualEye#readme",
+  "dependencies": {
+    "@google-cloud/vision": "^1.7.2",
+    "express": "^4.17.1",
+    "json": "^9.0.6",
+    "node-rekognition": "^0.4.0",
+    "nodemon": "^2.0.1",
+    "uuid": "^3.3.3"
+  }
+}
