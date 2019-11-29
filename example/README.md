@@ -1,5 +1,7 @@
 # `flutter_bluetooth_serial_example`
 
+CD to example/ and try the Example application.
+
 Example application demonstrates key features of the `flutter_bluetooth_serial` plugin:
 
 - Adapter status monitoring,
