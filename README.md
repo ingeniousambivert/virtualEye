@@ -1,6 +1,9 @@
+CREDITS : @edufolly
+
 # `flutter_bluetooth_serial`
 
 Flutter basic implementation for Classical Bluetooth (only RFCOMM for now).
+CD to example/ and try the Example application.
 
 ## Features
 
