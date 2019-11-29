@@ -1,6 +1,10 @@
-# `Flutter Bluetooth Serial Utility`
+# `flutter_bluetooth_serial`
 
-Example application demonstrates key features of the `flutter_bluetooth_serial` plugin:
+Flutter basic implementation for Classical Bluetooth (only RFCOMM for now).
+
+## Features
+
+The first goal of this project, started by `Edufolly` was making an interface for Serial Port Protocol (HC-05 Adapter). Now the plugin features:
 
 - Adapter status monitoring,
 
@@ -16,59 +20,59 @@ Example application demonstrates key features of the `flutter_bluetooth_serial` 
 
 - Sending and recieving data (multiple connections).
 
-The plugin (for now) uses Serial Port profile for moving data over RFCOMM, so make sure there is running Service Discovery Protocol that points to SP/RFCOMM channel of the device.
+The plugin (for now) uses Serial Port profile for moving data over RFCOMM, so make sure there is running Service Discovery Protocol that points to SP/RFCOMM channel of the device. There could be [max up to 7 Bluetooth connections](https://stackoverflow.com/a/32149519/4880243).
 
-## General
+For now there is only Android support.
 
-The basics are simple, so there is no need to write about it so much.
+## Getting Started
 
-#### Discovery page
+#### Depending
 
-On devices list you can long tap to start pairing process. If device is already paired, you can use long tap to unbond it.
-
-## Chat example
-
-There is implemented simple chat. Client (the Flutter host) connects to selected from bonded devices server in order to exchange data - asynchronously.
-
-#### Simple (console) server on Raspberry Pi:
-
-1. Enable Bluetooth and pair Raspberry with the Flutter host device (only first time)
-
-```
-$ sudo bluetoothctl
-# power on
-# agent on
-# scan on
-# pair [MAC of the Flutter host]
-# quit
+```yaml
+# Add dependency to `pubspec.yaml` of your project.
+dependencies:
+  # ...
+  flutter_bluetooth_serial: ^0.2.2
 ```
 
-2. Add SP/RFCOMM entry to the SDP service
+#### Installing
 
-```
-$ sudo sdptool add SP         # There can be channel specified one of 79 channels by adding `--channel N`.
-$ sudo sdptool browse local   # Check on which channel RFCOMM will be operating, to select in next step.
-```
-
-SDP tool tends to use good (and free) channels, so you don't have to keep track of other services if you let it decide.
-
-3. Start RFCOMM listening
-
-```
-$ sudo killall rfcomm
-$ sudo rfcomm listen /dev/rfcomm0 N picocom -c /dev/rfcomm0 --omap crcrlf   # `N` should be channel number on which SDP is pointing the SP.
+```bash
+# With pub manager
+pub get
+# or with Flutter
+flutter pub get
 ```
 
-4. Now you can connect and chat to the server with example application using the console. Every character is send to your device and buffered. Only full messages, between new line characters (`\n`) are displayed. You can use `Ctrl+A` and `Ctrl+Q` to exit from `picocom` utility if you want to end stream from server side (and `Ctrl+C` for exit watch-mode of `rfcomm` utility).
+#### Importing
 
-If you experiencing problems with your terminal (some `term_exitfunc` of `picocom` errors), you should try saving good terminal settings (`stty --save > someFile`) and loading them after picocom exits (adding `` ; stty `cat someFile` `` to the second command of 3. should do the thing).
+```dart
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+```
 
-You can also use the descriptor (`/dev/rfcomm0`) in other way, not necessarily to run interactive terminal on it, in order to chat. It can be used in various ways, providing more automation and/or abstraction.
+#### Usage
 
-## Background monitor example
+You should look to the Dart code of the library (mostly documented functions) or to the examples code.
 
-For testing multiple connections there were created background data collector, which connects to Arduino controller equiped with `HC-05` Bluetooth interface, 2 `DS18B20` termometers and water pH level meter. There are very nice graphs to displaying the recieved data.
+```dart
+// Some simplest connection :F
+try {
+    BluetoothConnection connection = await BluetoothConnection.toAddress(address);
+    print('Connected to the device');
 
-The example uses Celsius degree, which was chosen because it utilizes standard conditions of water freezing and ice melting points instead of just rolling a dice over periodic table of elements like a Fahrenheit do...
+    connection.input.listen((Uint8List data) {
+        print('Data incoming: ${ascii.decode(data)}');
+        connection.output.add(data); // Sending data
 
-Project of the Arduino side could be found in `/arduino` folder, but there is a note: **the code is prepared for testing in certain environment** and will not work without its hardware side (termometers, pH meter). If you can alter the real termometer code for example for random data generator or your own inputs.
+        if (ascii.decode(data).contains('!')) {
+            connection.finish(); // Closing connection
+            print('Disconnecting by local host');
+        }
+    }).onDone(() {
+        print('Disconnected by remote request');
+    });
+}
+catch (exception) {
+    print('Cannot connect, exception occured');
+}
+```

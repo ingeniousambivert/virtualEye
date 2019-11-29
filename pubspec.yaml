@@ -1,24 +1,21 @@
-name: bluetooth_serial_utility
+name: flutter_bluetooth_serial
 version: 0.2.2
-description: Demonstrates how to use the `flutter_bluetooth_serial` plugin.
-authors:
-  - Patryk Ludwikowski <patryk.ludwikowski.7@gmail.com>
-homepage: https://github.com/edufolly/flutter_bluetooth_serial/tree/master/example/
+description: A basic Flutter Bluetooth Serial library
+authors: 
+- Eduardo Folly <edufolly@gmail.com>
+- Patryk Ludwikowski <patryk.ludwikowski.7@gmail.com>
+homepage: https://github.com/edufolly/flutter_bluetooth_serial
+repository: https://github.com/edufolly/flutter_bluetooth_serial
+issue_tracker: https://github.com/edufolly/flutter_bluetooth_serial/issues
 
 dependencies:
   flutter:
     sdk: flutter
 
-  scoped_model: ^1.0.1
-
-  cupertino_icons: ^0.1.2
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
-  flutter_bluetooth_serial:
-    path: ../
-
 flutter:
-  uses-material-design: true
+  plugin:
+    androidPackage: io.github.edufolly.flutterbluetoothserial
+    pluginClass: FlutterBluetoothSerialPlugin
+
+environment:
+  sdk: ">=2.0.0-a <3.0.0"
