@@ -32,6 +32,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SeekBar;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     private Button onButton, offButton;
     private Button sendButton;
     private TextView dataToSend;
+    private SeekBar seekBarI;
+    private SeekBar seekBarD;
 
 
     /**
@@ -94,21 +97,22 @@ public class MainActivity extends AppCompatActivity {
         onButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendData("1");
+                sendData("1,");
             }
         });
 
         offButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendData("0");
+                sendData("0,");
             }
         });
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendData(dataToSend.getText().toString());
+                String value = "V" + dataToSend.getText() + ",";
+                sendData(value);
             }
         });
 
@@ -118,7 +122,10 @@ public class MainActivity extends AppCompatActivity {
      * Link the layout element from XML to Java
      */
     private void initializeScreen() {
-
+        seekBarI=(SeekBar) findViewById(R.id.seekBarI);
+        seekBarI.setOnSeekBarChangeListener(new intensityListener());
+        seekBarD=(SeekBar) findViewById(R.id.seekBarD);
+        seekBarD.setOnSeekBarChangeListener(new distanceListener());
         onButton = (Button) findViewById(R.id.on_button);
         offButton = (Button) findViewById(R.id.off_button);
         dataToSend = (TextView) findViewById(R.id.sendData);
@@ -133,8 +140,15 @@ public class MainActivity extends AppCompatActivity {
     private void sendData(String data) {
         if (btSocket != null) {
             try {
-                btSocket.getOutputStream().write(data.getBytes());
-            } catch (IOException e) {
+                if (!isBtConnected || btSocket == null) {
+                    makeToast("Connection Failure. Try reconnecting");
+                    Disconnect();
+                    finish();
+                } else {
+                    btSocket.getOutputStream().write(data.getBytes());
+                }
+            }
+               catch (IOException e) {
                 makeToast("Error. Try reconnecting");
             }
         }
@@ -177,8 +191,73 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+    * Seekbar listener to adjust the intensity of vibration
+   */
+
+    private class intensityListener implements SeekBar.OnSeekBarChangeListener {
+        int intensity ;
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress,
+                                      boolean fromUser) {
+            //Toast.makeText(getApplicationContext(),"Intensity: " + progress, Toast.LENGTH_SHORT).show();
+            intensity = progress + 60;
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+           // Toast.makeText(getApplicationContext(),"Seekbar touch started", Toast.LENGTH_SHORT).show();
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar ) {
+            // Verify connection before sending data
+            if (isBtConnected) {
+                Toast.makeText(getApplicationContext(), "Intensity : " + intensity + " Hz", Toast.LENGTH_SHORT).show();
+                sendData("L" + intensity + ",");
+            }
+        }
+
+    }
+
+
+    /**
+     * Seekbar listener to adjust the distance
+     */
+
+    private class distanceListener implements SeekBar.OnSeekBarChangeListener {
+        int distance ;
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress,
+                                      boolean fromUser) {
+            //Toast.makeText(getApplicationContext(),"Intensity: " + progress, Toast.LENGTH_SHORT).show();
+            distance = progress + 20;
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            // Toast.makeText(getApplicationContext(),"Seekbar touch started", Toast.LENGTH_SHORT).show();
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar ) {
+            // Verify connection before sending data
+            if(isBtConnected)
+            {  Toast.makeText(getApplicationContext(),"Distance : " + distance +
+                    " cm", Toast.LENGTH_SHORT).show();
+                sendData("D" + distance + ",");
+            }
+
+
+        }
+
+    }
+
+    /**
      * An AysncTask to connect to Bluetooth socket
      */
+
     private class ConnectBT extends AsyncTask<Void, Void, Void> {
         private boolean connectSuccess = true;
 
@@ -187,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
 
             //show a progress dialog
             progressDialog = ProgressDialog.show(MainActivity.this,
-                    "Connecting...", "Please wait while a connection is established");
+                    "Connecting...", "Please wait while a connection is established.");
         }
 
         //while the progress dialog is shown, the connection is done in background
@@ -225,11 +304,11 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(aVoid);
             Log.e(LOG_TAG, connectSuccess + "");
             if (!connectSuccess) {
-                makeToast("Connection Failed. Please try again.");
+                makeToast("Failed to establish a connection.");
                 finish();
             } else {
                 isBtConnected = true;
-                makeToast("Successfully Connected");
+                makeToast("Successfully established a connection.");
             }
             progressDialog.dismiss();
         }

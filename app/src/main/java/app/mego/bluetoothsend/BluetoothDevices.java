@@ -131,7 +131,7 @@ public class BluetoothDevices extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     //permission granted!
                 } else {
-                    Toast.makeText(this, "Access Location must be allowed for bluetooth Search", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Location access must be allowed for Bluetooth search", Toast.LENGTH_LONG).show();
                 }
         }
     }

@@ -6,44 +6,105 @@
     android:layout_height="match_parent"
     tools:context="app.mego.bluetoothsend.MainActivity">
 
-    <EditText
-        android:id="@+id/sendData"
-        android:layout_width="360dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="240dp"
-        android:ems="10"
-        android:hint="Enter Data"
-        android:inputType="textPersonName"
-        android:text="@string/sendData" />
 
-    <Button
-        android:id="@+id/sendButton"
+    <LinearLayout
+        android:id="@+id/buttonGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:layout_marginLeft="150dp"
-        android:text="Send"
-        android:textColor="#fff"
-        android:layout_marginStart="150dp" />
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        >
+        <Button
+            android:id="@+id/on_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/on"
+            android:layout_margin="5dp"
+            android:background="@color/onColor"
+            android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/on_button"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="240dp"
+        <Button
+            android:id="@+id/off_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/offColor"
+            android:text="@string/off"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/dataGroup"
+        android:layout_below="@id/buttonGroup"
+        android:layout_marginTop="70dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/on"
-        android:textColor="@android:color/white" />
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
 
-    <Button
-        android:id="@+id/off_button"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="80dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/sendData"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="@string/enterData"
+            android:inputType="textPersonName" />
 
-        android:text="@string/off"
-        android:textColor="@android:color/white" />
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send"
+            android:textColor="#fff"
+            />
+    </LinearLayout>
+
+
+     <LinearLayout
+         android:id="@+id/sliderGroup"
+         android:layout_below="@id/dataGroup"
+         android:layout_width="wrap_content"
+         android:layout_marginTop="70dp"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_centerHorizontal="true">
+
+         <TextView
+             android:id="@+id/simpleTextViewI"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="30dp"
+             android:text="@string/intensity"
+             android:textSize="17dp"
+             android:gravity="center_horizontal"/>
+         <SeekBar
+             android:id="@+id/seekBarI"
+             android:layout_width="350dp"
+             android:layout_height="wrap_content"
+             android:max="195"
+
+            />
+
+         <TextView
+             android:id="@+id/simpleTextViewD"
+             android:layout_marginTop="70dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="30dp"
+             android:text="@string/distance"
+             android:textSize="17dp"
+             android:gravity="center_horizontal"/>
+
+         <SeekBar
+             android:id="@+id/seekBarD"
+             android:layout_width="350dp"
+             android:layout_height="wrap_content"
+             android:max="980"
+
+             />
+
+  </LinearLayout>
 </RelativeLayout>

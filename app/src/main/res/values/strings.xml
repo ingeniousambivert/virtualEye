@@ -13,8 +13,12 @@
 
     <!-- MainActivity -->
 
-    <string name="sendData" />
+    <string name="enterData">Enter Data</string>
+    <string name="send">Send</string>
     <string name="on">On</string>
     <string name="off">Off</string>
+    <string name="intensity">Intensity</string>
+    <string name="distance">Distance</string>
+
 
 </resources>
