@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * UI Element
      */
+    private Button onButton, offButton;
     private Button sendButton;
     private TextView dataToSend;
 
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initializeScreen();
 
-        dataToSend = (TextView) findViewById(R.id.sendData);
+
         //check if the device has a bluetooth or not
         //and show Toast message if it does't have
         myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -89,6 +90,20 @@ public class MainActivity extends AppCompatActivity {
             Intent enableIntentBluetooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableIntentBluetooth, REQUEST_ENABLE_BT);
         }
+
+        onButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendData("1");
+            }
+        });
+
+        offButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendData("0");
+            }
+        });
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +119,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initializeScreen() {
 
+        onButton = (Button) findViewById(R.id.on_button);
+        offButton = (Button) findViewById(R.id.off_button);
+        dataToSend = (TextView) findViewById(R.id.sendData);
         sendButton = (Button) findViewById(R.id.sendButton);
     }
 
