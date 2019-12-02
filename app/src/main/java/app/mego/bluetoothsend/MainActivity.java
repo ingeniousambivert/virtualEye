@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String value = "V" + dataToSend.getText() + ",";
                 sendData(value);
+                dataToSend.setText(" ");
             }
         });
 
