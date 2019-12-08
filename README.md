@@ -9,9 +9,18 @@ For the server :
 npm start
 Open http://localhost:8000
 ```
-Use any IDE/Editor to build and run Flutter App
+Use any IDE/Editor with terminal to build and run Flutter App :
+```bash
+flutter run -d {your device ID}
+```
 
 ## Built with
+
+
+App:
+
+[Flutter](https://flutter.dev/)
+
 
 Back End :
 
@@ -19,7 +28,3 @@ Back End :
 
 [NodeJS](https://nodejs.org)
 
-
-App:
-
-[Flutter](https://flutter.dev/)
