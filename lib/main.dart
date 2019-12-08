@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:virtualeye/components/appbar.dart';
 import 'package:virtualeye/screens/home.dart';
 import 'package:virtualeye/screens/about.dart';
 
@@ -22,14 +21,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
 
-      appBar:BaseAppBar(),
-      body: HomeUI(),
-    );
-  }
-
-}

@@ -5,8 +5,7 @@ class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
   final Text title;
   final AppBar appBar;
   final List<Widget> widgets;
-
-  /// you can add more fields that meet your needs
+  
 
    BaseAppBar({Key key, this.title, this.appBar, this.widgets})
       : super(key: key);
@@ -20,7 +19,7 @@ class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
         actions: <Widget>[
         IconButton(
           icon: Icon(Icons.power_settings_new),
-          tooltip: "Power On Off",
+          tooltip: "Power On / Off",
           onPressed: () {
           },
         ),

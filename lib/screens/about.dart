@@ -17,6 +17,7 @@ class _InfoService extends State<About>{
         child: Container(
           padding: EdgeInsets.all(10.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text("How to use Virtual Eye app :",style: TextStyle(fontSize: 20.0),),
 

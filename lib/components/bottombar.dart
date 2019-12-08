@@ -25,7 +25,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
                 iconSize: 30.0,
                 padding: EdgeInsets.only(left: 28.0),
                 icon: Icon(Icons.home),
-                tooltip: "Home Button",
+                tooltip: "Home",
                 onPressed: () {
                   setState(() {
                     currentIndex = 0;
@@ -62,7 +62,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
                 iconSize: 30.0,
                 padding: EdgeInsets.only(right: 28.0),
                 icon: Icon(Icons.help),
-                tooltip: "About App",
+                tooltip: "About",
                 onPressed: () {
                   setState(() {
                     currentIndex = 3;
