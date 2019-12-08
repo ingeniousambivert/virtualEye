@@ -4,6 +4,8 @@ virtualEye as the name suggests allows the sightless people to visualise the wor
 
 
 ## Usage
+Checkout to the specific branch first.
+
 For the server :
 ```bash
 npm start
