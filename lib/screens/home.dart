@@ -159,7 +159,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: Colors.red),
+                          color: Colors.redAccent),
                     ),
                   ),
                 ),
