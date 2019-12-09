@@ -110,7 +110,13 @@ class _BluetoothAppState extends State<BluetoothApp> {
                       onChanged: (value) => setState(() => _device = value),
                       value: _device,
                     ),
-                    RaisedButton(
+                    FlatButton(
+                      color: Colors.blue,
+                      textColor: Colors.white,
+                      disabledColor: Colors.grey,
+                      disabledTextColor: Colors.black,
+                      padding: EdgeInsets.all(8.0),
+                      splashColor: Colors.blueAccent,
                       onPressed:
                       _pressed ? null : _connected ? _disconnect : _connect,
                       child: Text(_connected ? 'Disconnect' : 'Connect'),
