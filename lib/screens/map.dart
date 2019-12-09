@@ -7,6 +7,11 @@ class Map extends StatefulWidget{
 }
 
 class _MapActivity extends State<Map>{
+
+  _MapActivity({this.lat,this.long});
+  final double lat;
+  final double long;
+
   GoogleMapController mapController;
 
   void _onMapCreated(GoogleMapController controller) {
@@ -24,7 +29,8 @@ class _MapActivity extends State<Map>{
               GoogleMap(
                 onMapCreated: _onMapCreated,
                 initialCameraPosition: CameraPosition(
-                  target: LatLng(23.0271, 72.5515),
+                 // target: LatLng(23.0271, 72.5515),
+                  target: LatLng(lat, long),
                   zoom: 15.0,
                 ),
               ),

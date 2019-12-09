@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:virtualeye/screens/home.dart';
 import 'package:virtualeye/screens/about.dart';
 import 'package:virtualeye/screens/map.dart';
-
+import 'package:virtualeye/screens/connect.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/':(context) => Home(),
+        '/':(context) => BluetoothApp(),
+        '/home':(context)=>Home(),
         '/map':(context) => Map(),
         '/about':(context) => About(),
       },

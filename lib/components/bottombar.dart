@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:virtualeye/screens/map.dart';
 
  class BaseBottomBar extends StatefulWidget  {
   @override
@@ -6,7 +8,17 @@ import 'package:flutter/material.dart';
 }
 
 class _BaseBottomBarState extends State<BaseBottomBar> {
-  int currentIndex = 0 ;
+
+  _BaseBottomBarState({this.lat,this.long,this.position,this.currentIndex = 0});
+
+  int currentIndex ;
+  Position position;
+  final double lat;
+  final double long;
+
+  void getLocation () async {
+  Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
+  }
   @override
   Widget build(BuildContext context) {
     
@@ -29,9 +41,8 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
                 onPressed: () {
                   setState(() {
                     currentIndex = 0;
-                    Navigator.pushNamed(context, '/');
-
                   });
+                  Navigator.pushNamed(context, '/home');
                 },
               ),
 
@@ -39,12 +50,18 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
                 iconSize: 30.0,
                 padding: EdgeInsets.only(right: 28.0),
                 icon: Icon(Icons.directions),
-                tooltip: "Search",
+                tooltip: "Directions",
                 onPressed: () {
                   setState(() {
                     currentIndex = 3;
-                    Navigator.pushNamed(context, '/map');
                   });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Map(lat:23.0271,
+                          long:72.5515),
+                    ),
+                  );
                 },
               ),
               IconButton(
