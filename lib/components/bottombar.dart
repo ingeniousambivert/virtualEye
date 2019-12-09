@@ -38,11 +38,12 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
               IconButton(
                 iconSize: 30.0,
                 padding: EdgeInsets.only(right: 28.0),
-                icon: Icon(Icons.search),
+                icon: Icon(Icons.directions),
                 tooltip: "Search",
                 onPressed: () {
                   setState(() {
-                    currentIndex = 1;
+                    currentIndex = 3;
+                    Navigator.pushNamed(context, '/map');
                   });
                 },
               ),
