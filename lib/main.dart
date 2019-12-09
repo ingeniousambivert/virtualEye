@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:virtualeye/screens/home.dart';
 import 'package:virtualeye/screens/about.dart';
+import 'package:virtualeye/screens/map.dart';
 
 
 void main() => runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/':(context) => Home(),
-       // '/map':(context) => Map(),
+        '/map':(context) => Map(),
         '/about':(context) => About(),
       },
       debugShowCheckedModeBanner: false,
