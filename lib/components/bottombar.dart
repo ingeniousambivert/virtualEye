@@ -54,7 +54,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
               iconSize: 30.0,
               padding: EdgeInsets.all( 25.0),
               icon: Icon(Icons.settings),
-              tooltip: "Setting",
+              tooltip: "Settings",
               onPressed: () {
                 Navigator.push(
                   context,
