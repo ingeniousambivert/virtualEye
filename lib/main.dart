@@ -11,13 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/':(BuildContext context) => BluetoothApp(),
-        '/home':(BuildContext context)=>Home(),
-        '/map':(BuildContext context) => Map(),
-        '/about':(BuildContext context) => About(),
-      },
+      home: BluetoothApp(),
+      //initialRoute: '/',
+      //routes: {
+       // '/':(BuildContext context) => BluetoothApp(),
+        //'/home':(BuildContext context)=>Home(),
+        //'/map':(BuildContext context) => Map(),
+        //'/about':(BuildContext context) => About(),
+      //},
       debugShowCheckedModeBanner: false,
     );
   }
