@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:virtualeye/screens/home.dart';
+import 'package:virtualeye/screens/settings.dart';
 import 'package:virtualeye/screens/map.dart';
 import 'package:virtualeye/screens/about.dart';
+
 
 class BaseBottomBar extends StatefulWidget {
   @override
@@ -10,21 +11,11 @@ class BaseBottomBar extends StatefulWidget {
 }
 
 class _BaseBottomBarState extends State<BaseBottomBar> {
-  _BaseBottomBarState({this.position, this.currentIndex = 0});
-
-  int currentIndex;
-  Position position;
-
-  void getLocation() async {
-    Position position = await Geolocator().getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.bestForNavigation);
-    print(position);
-  }
 
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      shape: CircularNotchedRectangle(),
+      //shape: CircularNotchedRectangle(),
       child: Container(
         height: 75,
         child: Row(
@@ -33,25 +24,21 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
           children: <Widget>[
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.only(left: 28.0),
+              padding: EdgeInsets.all( 25.0),
               icon: Icon(Icons.home),
               tooltip: "Home",
               onPressed: () {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => Home(),
+                    builder: (context) => BluetoothApp(),
                   ),
                 );
-                setState(() {
-                  currentIndex = 0;
-                  print(currentIndex);
-                });
               },
             ),
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.only(right: 28.0),
+              padding: EdgeInsets.all( 25.0),
               icon: Icon(Icons.directions),
               tooltip: "Directions",
               onPressed: () {
@@ -61,27 +48,25 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
                     builder: (context) => Map(),
                   ),
                 );
-                setState(() {
-                  currentIndex = 1;
-                  print(currentIndex);
-                });
               },
             ),
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.only(left: 28.0),
-              icon: Icon(Icons.notifications),
-              tooltip: "Notifications",
+              padding: EdgeInsets.all( 25.0),
+              icon: Icon(Icons.settings),
+              tooltip: "Setting",
               onPressed: () {
-                setState(() {
-                  currentIndex = 2;
-                  print(currentIndex);
-                });
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                    builder: (context) => Settings(),
+                  ),
+                );
               },
             ),
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.only(right: 28.0),
+              padding: EdgeInsets.all( 25.0),
               icon: Icon(Icons.help),
               tooltip: "About",
               onPressed: () {
@@ -91,10 +76,6 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
                     builder: (context) => About(),
                   ),
                 );
-                setState(() {
-                  currentIndex = 3;
-                  print(currentIndex);
-                });
               },
             )
           ],

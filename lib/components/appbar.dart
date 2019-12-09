@@ -15,15 +15,8 @@ class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.black,
       title: Text("virtualEye",
-        style: TextStyle(color: Colors.white),),
-        actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.power_settings_new),
-          tooltip: "Power On / Off",
-          onPressed: () {
-          },
-        ),
-      ],
+        style: TextStyle(color: Colors.white),
+      )
     );
   }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:virtualeye/screens/home.dart';
+import 'package:virtualeye/screens/settings.dart';
 import 'package:virtualeye/screens/about.dart';
 import 'package:virtualeye/screens/map.dart';
-import 'package:virtualeye/screens/connect.dart';
+import 'package:virtualeye/screens/home.dart';
 
 void main() => runApp(MyApp());
 
