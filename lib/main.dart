@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/':(context) => BluetoothApp(),
-        '/home':(context)=>Home(),
-        '/map':(context) => Map(),
-        '/about':(context) => About(),
+        '/':(BuildContext context) => BluetoothApp(),
+        '/home':(BuildContext context)=>Home(),
+        '/map':(BuildContext context) => Map(),
+        '/about':(BuildContext context) => About(),
       },
       debugShowCheckedModeBanner: false,
     );

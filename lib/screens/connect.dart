@@ -1,11 +1,13 @@
+import 'package:flutter/material.dart';
+
 // For performing some operations asynchronously
 import 'dart:async';
+
 import 'package:virtualeye/components/appbar.dart';
+import 'package:virtualeye/components/bottombar.dart';
 
 // For using PlatformException
 import 'package:flutter/services.dart';
-
-import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 class BluetoothApp extends StatefulWidget {
@@ -85,6 +87,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
       home: Scaffold(
         key: _scaffoldKey,
         appBar: BaseAppBar(),
+        bottomNavigationBar: BaseBottomBar() ,
         body: Container(
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -166,7 +169,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
