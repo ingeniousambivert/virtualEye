@@ -84,6 +84,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         key: _scaffoldKey,
         appBar: BaseAppBar(),
