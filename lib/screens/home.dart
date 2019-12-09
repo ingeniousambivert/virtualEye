@@ -121,7 +121,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Card(
-                  elevation: 4,
+                  elevation: 1,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
