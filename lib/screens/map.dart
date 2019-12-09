@@ -68,6 +68,7 @@ class _MapActivity extends State<Map>{
           child: FittedBox(
             child: FloatingActionButton(
               onPressed: (){
+                Navigator.pop(context);
               },
               backgroundColor: Colors.black,
               child: Icon(Icons.arrow_left, color: Colors.white,),
