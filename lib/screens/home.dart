@@ -225,7 +225,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
   void _sendOnMessageToBluetooth() {
     bluetooth.isConnected.then((isConnected) {
       if (isConnected) {
-        bluetooth.write("1");
+        bluetooth.write("1,");
         show('Device Turned On');
       }
     });
@@ -236,7 +236,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
   void _sendOffMessageToBluetooth() {
     bluetooth.isConnected.then((isConnected) {
       if (isConnected) {
-        bluetooth.write("0");
+        bluetooth.write("0,");
         show('Device Turned Off');
       }
     });
