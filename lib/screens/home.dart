@@ -158,7 +158,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(15.0),
                   child: Center(
                     child: Padding(
                       padding: const EdgeInsets.only(top: 150.0),
