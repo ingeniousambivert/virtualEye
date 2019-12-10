@@ -127,7 +127,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Card(
-                  elevation: 1,
+                  elevation: 2,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -136,7 +136,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
                           child: Text(
                             _device.toString(),
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 22.0,
                               color: Colors.black54,
                             ),
                           ),
@@ -161,7 +161,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
                   padding: const EdgeInsets.all(20),
                   child: Center(
                     child: Text(
-                      "NOTE: If you cannot find the device in the list, please turn on bluetooth and pair the device by going to the bluetooth settings",
+                      "NOTE: If the device is not found in the list then manually connect to it from the device settings.",
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -182,7 +182,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
     List<DropdownMenuItem<BluetoothDevice>> items = [];
     if (_devicesList.isEmpty) {
       items.add(DropdownMenuItem(
-        child: Text('NONE'),
+        child: Text('None'),
       ));
     } else {
       _devicesList.forEach((device) {
