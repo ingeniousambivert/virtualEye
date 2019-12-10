@@ -160,12 +160,15 @@ class _BluetoothAppState extends State<BluetoothApp> {
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Center(
-                    child: Text(
-                      "NOTE: If the device is not found in the list then manually connect to it from the device settings.",
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFef5350)),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 150.0),
+                      child: Text(
+                        "NOTE: If the device is not found in the list then manually connect to it from the device settings.",
+                        style: TextStyle(
+                            fontSize: 13.5,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFef5350)),
+                      ),
                     ),
                   ),
                 ),
