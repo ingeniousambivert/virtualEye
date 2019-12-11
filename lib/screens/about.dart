@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+// For better logging
 import 'package:logger/logger.dart';
+
+// For using the BaseAppBar and BaseBottomBar
 import 'package:virtualeye/components/appbar.dart';
 import 'package:virtualeye/components/bottombar.dart';
 

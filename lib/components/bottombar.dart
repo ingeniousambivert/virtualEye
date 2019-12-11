@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+// For better logging
+import 'package:logger/logger.dart';
+
+// Importing all the components
 import 'package:virtualeye/screens/home.dart';
 import 'package:virtualeye/screens/settings.dart';
 import 'package:virtualeye/screens/map.dart';
 import 'package:virtualeye/screens/about.dart';
-import 'package:logger/logger.dart';
 
 final log = Logger(
     printer: PrettyPrinter(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:virtualeye/services/location.dart';
+// For better logging
 import 'package:logger/logger.dart';
+
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+// For getting the current location
+import 'package:virtualeye/services/location.dart';
 
 final log = Logger(
     printer: PrettyPrinter(
