@@ -1,6 +1,7 @@
 // For getting the current location
 import 'package:geolocator/geolocator.dart';
 // For better logging
+/// Use standard android logging methods.
 import 'package:logger/logger.dart';
 
 final log = Logger(

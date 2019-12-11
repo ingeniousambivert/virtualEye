@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 // For better logging
+/// Use standard android logging methods.
 import 'package:logger/logger.dart';
 
 final log = Logger(
