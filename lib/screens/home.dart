@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:logger/logger.dart';
 // For performing some operations asynchronously
 import 'dart:async';
 
@@ -9,6 +9,16 @@ import 'package:virtualeye/components/bottombar.dart';
 // For using PlatformException
 import 'package:flutter/services.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+
+final log = Logger(
+    printer: PrettyPrinter(
+  methodCount: 0,
+  errorMethodCount: 5,
+  lineLength: 50,
+  colors: true,
+  printEmojis: true,
+  printTime: false,
+));
 
 class BluetoothApp extends StatefulWidget {
   @override
@@ -41,7 +51,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
     try {
       devices = await bluetooth.getBondedDevices();
     } on PlatformException {
-      print("Error");
+      log.e("Error");
     }
 
     // For knowing when bluetooth is connected and when disconnected
@@ -63,7 +73,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
           break;
 
         default:
-          print(state);
+          log.i(state);
           break;
       }
     });
@@ -88,12 +98,11 @@ class _BluetoothAppState extends State<BluetoothApp> {
       home: Scaffold(
         key: _scaffoldKey,
         appBar: BaseAppBar(),
-        bottomNavigationBar: BaseBottomBar() ,
+        bottomNavigationBar: BaseBottomBar(),
         body: Container(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -118,7 +127,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
                       padding: EdgeInsets.all(8.0),
                       splashColor: Colors.blueAccent,
                       onPressed:
-                      _pressed ? null : _connected ? _disconnect : _connect,
+                          _pressed ? null : _connected ? _disconnect : _connect,
                       child: Text(_connected ? 'Disconnect' : 'Connect'),
                     ),
                   ],
@@ -143,12 +152,12 @@ class _BluetoothAppState extends State<BluetoothApp> {
                         ),
                         FlatButton(
                           onPressed:
-                          _connected ? _sendOnMessageToBluetooth : null,
+                              _connected ? _sendOnMessageToBluetooth : null,
                           child: Text("ON"),
                         ),
                         FlatButton(
                           onPressed:
-                          _connected ? _sendOffMessageToBluetooth : null,
+                              _connected ? _sendOffMessageToBluetooth : null,
                           child: Text("OFF"),
                         ),
                       ],
@@ -248,9 +257,9 @@ class _BluetoothAppState extends State<BluetoothApp> {
   // Method to show a Snackbar,
   // taking message as the text
   Future show(
-      String message, {
-        Duration duration: const Duration(seconds: 3),
-      }) async {
+    String message, {
+    Duration duration: const Duration(seconds: 3),
+  }) async {
     await new Future.delayed(new Duration(milliseconds: 100));
     _scaffoldKey.currentState.showSnackBar(
       new SnackBar(

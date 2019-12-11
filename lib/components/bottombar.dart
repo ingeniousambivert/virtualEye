@@ -3,7 +3,17 @@ import 'package:virtualeye/screens/home.dart';
 import 'package:virtualeye/screens/settings.dart';
 import 'package:virtualeye/screens/map.dart';
 import 'package:virtualeye/screens/about.dart';
+import 'package:logger/logger.dart';
 
+final log = Logger(
+    printer: PrettyPrinter(
+  methodCount: 0,
+  errorMethodCount: 5,
+  lineLength: 50,
+  colors: true,
+  printEmojis: true,
+  printTime: false,
+));
 
 class BaseBottomBar extends StatefulWidget {
   @override
@@ -11,7 +21,6 @@ class BaseBottomBar extends StatefulWidget {
 }
 
 class _BaseBottomBarState extends State<BaseBottomBar> {
-
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -24,7 +33,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
           children: <Widget>[
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.all( 25.0),
+              padding: EdgeInsets.all(25.0),
               icon: Icon(Icons.home),
               tooltip: "Home",
               onPressed: () {
@@ -38,7 +47,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
             ),
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.all( 25.0),
+              padding: EdgeInsets.all(25.0),
               icon: Icon(Icons.directions),
               tooltip: "Directions",
               onPressed: () {
@@ -52,7 +61,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
             ),
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.all( 25.0),
+              padding: EdgeInsets.all(25.0),
               icon: Icon(Icons.settings),
               tooltip: "Settings",
               onPressed: () {
@@ -66,7 +75,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
             ),
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.all( 25.0),
+              padding: EdgeInsets.all(25.0),
               icon: Icon(Icons.help),
               tooltip: "About",
               onPressed: () {
