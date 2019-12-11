@@ -134,7 +134,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
                       children: <Widget>[
                         Expanded(
                           child: Text(
-                            _device.toString(),
+                            "Device 1",
                             style: TextStyle(
                               fontSize: 22.0,
                               color: Colors.black54,
