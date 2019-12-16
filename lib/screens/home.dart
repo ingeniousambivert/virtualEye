@@ -129,7 +129,11 @@ class _HomePage extends State<Home> {
             ),
             Divider(),
             ListTile(
-              title: RaisedButton(
+              title: FlatButton(
+                  color: const Color(0xFF1c1b1b),
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(8.0),
+                  splashColor: Colors.grey,
                   child: const Text('Explore Discovered Devices'),
                   onPressed: () async {
                     final BluetoothDevice selectedDevice =
@@ -146,7 +150,11 @@ class _HomePage extends State<Home> {
                   }),
             ),
             ListTile(
-              title: RaisedButton(
+              title: FlatButton(
+                color: const Color(0xFF1c1b1b),
+                textColor: Colors.white,
+                padding: EdgeInsets.all(8.0),
+                splashColor: Colors.grey,
                 child: const Text('Manage Paired Devices'),
                 onPressed: () async {
                   final BluetoothDevice selectedDevice =

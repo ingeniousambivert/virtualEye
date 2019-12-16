@@ -60,7 +60,7 @@ class _InfoService extends State<About> {
               ),
               Center(
                 child: FlatButton(
-                    color: Colors.black87,
+                    color: const Color(0xFF1c1b1b),
                     textColor: Colors.white,
                     padding: EdgeInsets.all(8.0),
                     splashColor: Colors.grey,
