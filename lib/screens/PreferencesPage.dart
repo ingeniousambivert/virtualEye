@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
+
+import 'package:flutter_knob/flutter_knob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
@@ -28,9 +30,13 @@ class _PreferencesPage extends State<PreferencesPage> {
 
   String onButton = '1,';
   String offButton = '0,';
-  int currentIndex = 0;
 
   double _value = 0.0;
+
+  void setValue(double value) => setState(() => _value = value);
+  static const double minValue = 0;
+  static const double maxValue = 10.0;
+
   bool status = true;
   List<_Message> messages = List<_Message>();
   String _messageBuffer = '';
@@ -101,6 +107,7 @@ class _PreferencesPage extends State<PreferencesPage> {
 
   @override
   Widget build(BuildContext context) {
+    //Chat screen
 //    final List<Row> list = messages.map((_message) {
 //      return Row(
 //        children: <Widget>[
@@ -155,6 +162,7 @@ class _PreferencesPage extends State<PreferencesPage> {
         ),
         body: SafeArea(
             child: Column(children: <Widget>[
+          // Chat view
 //          Flexible(
 //              child: ListView(
 //                  padding: const EdgeInsets.all(12.0),
@@ -162,12 +170,82 @@ class _PreferencesPage extends State<PreferencesPage> {
 //                  children: list)),
           Container(
             padding: EdgeInsets.all(20),
-            child: new Center(
-              child: new Column(
-                children: <Widget>[
-                  new Text('Intensity: ${(_value * 100).round()}'),
-                  new Slider(value: _value, onChanged: _setvalue)
-                ],
+            child: Container(
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'Intensity',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 20.0),
+                          ),
+                        ),
+                        Knob(
+                            value: _value,
+                            color: const Color(0xFF1c1b1b),
+                            onChanged: setValue,
+                            min: minValue,
+                            max: maxValue,
+                            size: 100),
+//                  Slider(
+//                      value: _value,
+//                      onChanged: setValue,
+//                      min: minValue,
+//                      max: maxValue)
+
+                        SizedBox(
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 20.0),
+                          ),
+                        ),
+                        Text(
+                          'Value: ${_value.toStringAsFixed(3)}',
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'Distance',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 20.0),
+                          ),
+                        ),
+                        Knob(
+                            value: _value,
+                            color: const Color(0xFF1c1b1b),
+                            onChanged: setValue,
+                            min: minValue,
+                            max: maxValue,
+                            size: 100),
+//                  Slider(
+//                      value: _value,
+//                      onChanged: setValue,
+//                      min: minValue,
+//                      max: maxValue),
+
+                        SizedBox(
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 20.0),
+                          ),
+                        ),
+                        Text(
+                          'Value: ${_value.toStringAsFixed(3)}',
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),

@@ -11,9 +11,9 @@ import 'package:virtualeye/components/appbar.dart';
 import 'package:virtualeye/components/bottombar.dart';
 
 // Helper Services
-import 'package:virtualeye/services/DiscoveryPage.dart';
-import 'package:virtualeye/services/SelectBondedDevicePage.dart';
-import 'package:virtualeye/services/PreferencesPage.dart';
+import 'package:virtualeye/screens/DiscoveryPage.dart';
+import 'package:virtualeye/screens/SelectBondedDevicePage.dart';
+import 'package:virtualeye/screens/PreferencesPage.dart';
 
 final log = Logger(
     printer: PrettyPrinter(
