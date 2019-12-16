@@ -37,7 +37,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
           children: <Widget>[
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.all(25.0),
+              padding: EdgeInsets.all(30.0),
               icon: Icon(Icons.home),
               tooltip: "Home",
               onPressed: () {
@@ -51,7 +51,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
             ),
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.all(25.0),
+              padding: EdgeInsets.all(30.0),
               icon: Icon(Icons.directions),
               tooltip: "Directions",
               onPressed: () {
@@ -65,21 +65,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
             ),
             IconButton(
               iconSize: 30.0,
-              padding: EdgeInsets.all(25.0),
-              icon: Icon(Icons.settings),
-              tooltip: "Settings",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                    builder: (context) => Settings(),
-                  ),
-                );
-              },
-            ),
-            IconButton(
-              iconSize: 30.0,
-              padding: EdgeInsets.all(25.0),
+              padding: EdgeInsets.all(30.0),
               icon: Icon(Icons.help),
               tooltip: "About",
               onPressed: () {

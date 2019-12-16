@@ -21,7 +21,13 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: BaseAppBar(),
+        appBar: BaseAppBar(
+          title: Text(
+            'Settings',
+            style: TextStyle(color: Colors.white),
+          ),
+          appBar: AppBar(),
+        ),
         body: SettingsUI(),
         bottomNavigationBar: BaseBottomBar());
   }

@@ -4,29 +4,33 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
-class ChatPage extends StatefulWidget {
+class PreferencesPage extends StatefulWidget {
   final BluetoothDevice server;
 
-  const ChatPage({this.server});
+  const PreferencesPage({this.server});
 
   @override
-  _ChatPage createState() => new _ChatPage();
+  _PreferencesPage createState() => new _PreferencesPage();
 }
 
 class _Message {
   int whom;
+
   String text;
 
   _Message(this.whom, this.text);
 }
 
-class _ChatPage extends State<ChatPage> {
+class _PreferencesPage extends State<PreferencesPage> {
   static final clientID = 0;
   static final maxMessageLength = 4096 - 3;
   BluetoothConnection connection;
 
   String onButton = '1,';
   String offButton = '0,';
+  int currentIndex = 0;
+
+  double _value = 0.0;
   bool status = true;
   List<_Message> messages = List<_Message>();
   String _messageBuffer = '';
@@ -39,7 +43,7 @@ class _ChatPage extends State<ChatPage> {
   bool get isConnected => connection != null && connection.isConnected;
 
   bool isDisconnecting = false;
-
+  void _setvalue(double value) => setState(() => _value = value);
   @override
   void initState() {
     super.initState();
@@ -97,29 +101,29 @@ class _ChatPage extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Row> list = messages.map((_message) {
-      return Row(
-        children: <Widget>[
-          Container(
-            child: Text(
-                (text) {
-                  return text == '/shrug' ? '¯\\_(ツ)_/¯' : text;
-                }(_message.text.trim()),
-                style: TextStyle(color: Colors.white)),
-            padding: EdgeInsets.all(12.0),
-            margin: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
-            width: 222.0,
-            decoration: BoxDecoration(
-                color:
-                    _message.whom == clientID ? Colors.blueAccent : Colors.grey,
-                borderRadius: BorderRadius.circular(7.0)),
-          ),
-        ],
-        mainAxisAlignment: _message.whom == clientID
-            ? MainAxisAlignment.end
-            : MainAxisAlignment.start,
-      );
-    }).toList();
+//    final List<Row> list = messages.map((_message) {
+//      return Row(
+//        children: <Widget>[
+//          Container(
+//            child: Text(
+//                (text) {
+//                  return text == '/shrug' ? '¯\\_(ツ)_/¯' : text;
+//                }(_message.text.trim()),
+//                style: TextStyle(color: Colors.white)),
+//            padding: EdgeInsets.all(12.0),
+//            margin: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
+//            width: 222.0,
+//            decoration: BoxDecoration(
+//                color:
+//                    _message.whom == clientID ? Colors.blueAccent : Colors.grey,
+//                borderRadius: BorderRadius.circular(7.0)),
+//          ),
+//        ],
+//        mainAxisAlignment: _message.whom == clientID
+//            ? MainAxisAlignment.end
+//            : MainAxisAlignment.start,
+//      );
+//    }).toList();
 
     return Scaffold(
         appBar: AppBar(
@@ -151,11 +155,22 @@ class _ChatPage extends State<ChatPage> {
         ),
         body: SafeArea(
             child: Column(children: <Widget>[
-          Flexible(
-              child: ListView(
-                  padding: const EdgeInsets.all(12.0),
-                  controller: listScrollController,
-                  children: list)),
+//          Flexible(
+//              child: ListView(
+//                  padding: const EdgeInsets.all(12.0),
+//                  controller: listScrollController,
+//                  children: list)),
+          Container(
+            padding: EdgeInsets.all(20),
+            child: new Center(
+              child: new Column(
+                children: <Widget>[
+                  new Text('Intensity: ${(_value * 100).round()}'),
+                  new Slider(value: _value, onChanged: _setvalue)
+                ],
+              ),
+            ),
+          ),
           Row(children: <Widget>[
             Flexible(
                 child: Container(
@@ -165,10 +180,10 @@ class _ChatPage extends State<ChatPage> {
                       controller: textEditingController,
                       decoration: InputDecoration.collapsed(
                         hintText: (isConnecting
-                            ? 'Wait until connected...'
+                            ? 'Establishing a connection...'
                             : isConnected
-                                ? 'Type your message...'
-                                : 'Chat got disconnected'),
+                                ? 'Send Data'
+                                : 'Connection Failure...'),
                         hintStyle: const TextStyle(color: Colors.grey),
                       ),
                       enabled: isConnected,

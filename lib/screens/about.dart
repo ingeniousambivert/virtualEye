@@ -26,7 +26,13 @@ class _InfoService extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaseAppBar(),
+      appBar: BaseAppBar(
+        title: Text(
+          'About',
+          style: TextStyle(color: Colors.white),
+        ),
+        appBar: AppBar(),
+      ),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(10.0),

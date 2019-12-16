@@ -13,7 +13,7 @@ import 'package:virtualeye/components/bottombar.dart';
 // Helper Services
 import 'package:virtualeye/services/DiscoveryPage.dart';
 import 'package:virtualeye/services/SelectBondedDevicePage.dart';
-import 'package:virtualeye/services/ChatPage.dart';
+import 'package:virtualeye/services/PreferencesPage.dart';
 
 final log = Logger(
     printer: PrettyPrinter(
@@ -98,12 +98,17 @@ class _HomePage extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaseAppBar(),
+      appBar: BaseAppBar(
+        title: Text(
+          'Home',
+          style: TextStyle(color: Colors.white),
+        ),
+        appBar: AppBar(),
+      ),
       bottomNavigationBar: BaseBottomBar(),
       body: Container(
         child: ListView(
           children: <Widget>[
-            Divider(),
             SwitchListTile(
               title: const Text('Enable Bluetooth'),
               value: _bluetoothState.isEnabled,
@@ -122,19 +127,10 @@ class _HomePage extends State<Home> {
                 });
               },
             ),
-            ListTile(
-              title: const Text('Bluetooth status'),
-              subtitle: Text(_bluetoothState.toString()),
-              trailing: RaisedButton(
-                child: const Text('Settings'),
-                onPressed: () {
-                  FlutterBluetoothSerial.instance.openSettings();
-                },
-              ),
-            ),
+            Divider(),
             ListTile(
               title: RaisedButton(
-                  child: const Text('Explore discovered devices'),
+                  child: const Text('Explore Discovered Devices'),
                   onPressed: () async {
                     final BluetoothDevice selectedDevice =
                         await Navigator.of(context)
@@ -151,7 +147,7 @@ class _HomePage extends State<Home> {
             ),
             ListTile(
               title: RaisedButton(
-                child: const Text('Connect to paired device to chat'),
+                child: const Text('Manage Paired Devices'),
                 onPressed: () async {
                   final BluetoothDevice selectedDevice =
                       await Navigator.of(context)
@@ -160,10 +156,10 @@ class _HomePage extends State<Home> {
                   }));
 
                   if (selectedDevice != null) {
-                    print('Connect -> selected ' + selectedDevice.address);
+                    print('Connect -> Selected ' + selectedDevice.address);
                     _startChat(context, selectedDevice);
                   } else {
-                    print('Connect -> no device selected');
+                    print('Connect -> No Device Selected');
                   }
                 },
               ),
@@ -176,7 +172,7 @@ class _HomePage extends State<Home> {
 
   void _startChat(BuildContext context, BluetoothDevice server) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return ChatPage(server: server);
+      return PreferencesPage(server: server);
     }));
   }
 }

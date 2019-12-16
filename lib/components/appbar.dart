@@ -24,12 +24,7 @@ class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "virtualEye",
-          style: TextStyle(color: Colors.white),
-        ));
+    return AppBar(backgroundColor: Colors.black, title: title);
   }
 
   @override
