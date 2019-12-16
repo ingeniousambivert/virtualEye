@@ -44,7 +44,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
-                    builder: (context) => BluetoothApp(),
+                    builder: (context) => Home(),
                   ),
                 );
               },
