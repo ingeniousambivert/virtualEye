@@ -35,15 +35,15 @@ class _PreferencesPage extends State<PreferencesPage> {
 
   void _setValueForIntensity(double value) =>
       setState(() => _valueForIntensity = value);
-  static const double minValueForIntensity = 0;
-  static const double maxValueForIntensity = 10.0;
+  static const double minValueForIntensity = 100;
+  static const double maxValueForIntensity = 255.0;
 
   double _valueForDistance = 0.0;
 
   void _setValueForDistance(double value) =>
       setState(() => _valueForDistance = value);
-  static const double minValueForDistance = 0;
-  static const double maxValueForDistance = 10.0;
+  static const double minValueForDistance = 100;
+  static const double maxValueForDistance = 500.0;
 
   bool status = true;
   List<_Message> messages = List<_Message>();
