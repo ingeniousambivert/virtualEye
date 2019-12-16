@@ -31,11 +31,19 @@ class _PreferencesPage extends State<PreferencesPage> {
   String onButton = '1,';
   String offButton = '0,';
 
-  double _value = 0.0;
+  double _valueForIntensity = 0.0;
 
-  void setValue(double value) => setState(() => _value = value);
-  static const double minValue = 0;
-  static const double maxValue = 10.0;
+  void _setValueForIntensity(double value) =>
+      setState(() => _valueForIntensity = value);
+  static const double minValueForIntensity = 0;
+  static const double maxValueForIntensity = 10.0;
+
+  double _valueForDistance = 0.0;
+
+  void _setValueForDistance(double value) =>
+      setState(() => _valueForDistance = value);
+  static const double minValueForDistance = 0;
+  static const double maxValueForDistance = 10.0;
 
   bool status = true;
   List<_Message> messages = List<_Message>();
@@ -49,7 +57,7 @@ class _PreferencesPage extends State<PreferencesPage> {
   bool get isConnected => connection != null && connection.isConnected;
 
   bool isDisconnecting = false;
-  void _setvalue(double value) => setState(() => _value = value);
+
   @override
   void initState() {
     super.initState();
@@ -188,11 +196,11 @@ class _PreferencesPage extends State<PreferencesPage> {
                           ),
                         ),
                         Knob(
-                            value: _value,
+                            value: _valueForIntensity,
                             color: const Color(0xFF1c1b1b),
-                            onChanged: setValue,
-                            min: minValue,
-                            max: maxValue,
+                            onChanged: _setValueForIntensity,
+                            min: minValueForIntensity,
+                            max: maxValueForIntensity,
                             size: 100),
 //                  Slider(
 //                      value: _value,
@@ -206,7 +214,7 @@ class _PreferencesPage extends State<PreferencesPage> {
                           ),
                         ),
                         Text(
-                          'Value: ${_value.toStringAsFixed(3)}',
+                          'Value: ${_valueForIntensity.toStringAsFixed(3)}',
                         ),
                       ],
                     ),
@@ -222,11 +230,11 @@ class _PreferencesPage extends State<PreferencesPage> {
                           ),
                         ),
                         Knob(
-                            value: _value,
+                            value: _valueForDistance,
                             color: const Color(0xFF1c1b1b),
-                            onChanged: setValue,
-                            min: minValue,
-                            max: maxValue,
+                            onChanged: _setValueForDistance,
+                            min: minValueForDistance,
+                            max: maxValueForDistance,
                             size: 100),
 //                  Slider(
 //                      value: _value,
@@ -240,7 +248,7 @@ class _PreferencesPage extends State<PreferencesPage> {
                           ),
                         ),
                         Text(
-                          'Value: ${_value.toStringAsFixed(3)}',
+                          'Value: ${_valueForIntensity.toStringAsFixed(3)}',
                         ),
                       ],
                     )
