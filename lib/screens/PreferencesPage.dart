@@ -257,9 +257,12 @@ class _PreferencesPage extends State<PreferencesPage> {
               ),
             ),
           ),
-          Row(children: <Widget>[
-            Flexible(
-                child: Container(
+          Expanded(
+            child: Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: Row(children: <Widget>[
+                Flexible(
+                  child: Container(
                     margin: const EdgeInsets.only(left: 16.0),
                     child: TextField(
                       style: const TextStyle(fontSize: 15.0),
@@ -273,16 +276,20 @@ class _PreferencesPage extends State<PreferencesPage> {
                         hintStyle: const TextStyle(color: Colors.grey),
                       ),
                       enabled: isConnected,
-                    ))),
-            Container(
-              margin: const EdgeInsets.all(8.0),
-              child: IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: isConnected
-                      ? () => _sendMessage(textEditingController.text)
-                      : null),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(8.0),
+                  child: IconButton(
+                      icon: const Icon(Icons.send),
+                      onPressed: isConnected
+                          ? () => _sendMessage(textEditingController.text)
+                          : null),
+                ),
+              ]),
             ),
-          ])
+          )
         ])));
   }
 
