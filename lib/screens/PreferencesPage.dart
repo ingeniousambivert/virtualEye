@@ -248,7 +248,7 @@ class _PreferencesPage extends State<PreferencesPage> {
                           ),
                         ),
                         Text(
-                          'Value: ${_valueForIntensity.toStringAsFixed(3)}',
+                          'Value: ${_valueForDistance.toStringAsFixed(3)}',
                         ),
                       ],
                     )
