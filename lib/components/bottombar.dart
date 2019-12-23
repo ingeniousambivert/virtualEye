@@ -3,12 +3,6 @@ import 'package:flutter/material.dart';
 /// Use standard android logging methods.
 import 'package:logger/logger.dart';
 
-// Importing all the components
-import 'package:virtualeye/screens/home.dart';
-import 'package:virtualeye/screens/settings.dart';
-import 'package:virtualeye/screens/map.dart';
-import 'package:virtualeye/screens/about.dart';
-
 final log = Logger(
     printer: PrettyPrinter(
   methodCount: 0,
@@ -41,26 +35,16 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
               icon: Icon(Icons.home),
               tooltip: "Home",
               onPressed: () {
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                    builder: (context) => Home(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/');
               },
             ),
             IconButton(
               iconSize: 30.0,
               padding: EdgeInsets.all(30.0),
               icon: Icon(Icons.directions),
-              tooltip: "Directions",
+              tooltip: "Map",
               onPressed: () {
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                    builder: (context) => Map(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/map');
               },
             ),
             IconButton(
@@ -69,12 +53,7 @@ class _BaseBottomBarState extends State<BaseBottomBar> {
               icon: Icon(Icons.help),
               tooltip: "About",
               onPressed: () {
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                    builder: (context) => About(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/about');
               },
             )
           ],

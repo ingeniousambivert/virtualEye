@@ -134,7 +134,7 @@ class _HomePage extends State<Home> {
                   textColor: Colors.white,
                   padding: EdgeInsets.all(8.0),
                   splashColor: Colors.grey,
-                  child: const Text('Explore Discovered Devices'),
+                  child: const Text('Discover Devices'),
                   onPressed: () async {
                     final BluetoothDevice selectedDevice =
                         await Navigator.of(context)
@@ -169,6 +169,18 @@ class _HomePage extends State<Home> {
                   } else {
                     print('Connect -> No Device Selected');
                   }
+                },
+              ),
+            ),
+            ListTile(
+              title: FlatButton(
+                color: const Color(0xFF1c1b1b),
+                textColor: Colors.white,
+                padding: EdgeInsets.all(8.0),
+                splashColor: Colors.grey,
+                child: const Text('Go To MLVision'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/mlhome');
                 },
               ),
             ),

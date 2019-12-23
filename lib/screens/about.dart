@@ -19,10 +19,10 @@ final log = Logger(
 
 class About extends StatefulWidget {
   @override
-  _InfoService createState() => _InfoService();
+  _AboutService createState() => _AboutService();
 }
 
-class _InfoService extends State<About> {
+class _AboutService extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

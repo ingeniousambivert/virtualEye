@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "146544664636",
+    "firebase_url": "https://virtualeye-ml.firebaseio.com",
+    "project_id": "virtualeye-ml",
+    "storage_bucket": "virtualeye-ml.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146544664636:android:3640bab43ce22612c7e339",
+        "android_client_info": {
+          "package_name": "com.virtualeye.virtualeye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146544664636-h1n800igojtja99jj2k212o0sdcqpl5k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpwCKvecBXoiz-CIrhmojslTtm30YdSyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146544664636-h1n800igojtja99jj2k212o0sdcqpl5k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

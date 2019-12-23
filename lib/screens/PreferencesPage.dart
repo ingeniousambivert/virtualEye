@@ -1,10 +1,22 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
-
+// For better logging
+/// Use standard android logging methods.
+import 'package:logger/logger.dart';
 import 'package:flutter_knob/flutter_knob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+
+final log = Logger(
+    printer: PrettyPrinter(
+  methodCount: 0,
+  errorMethodCount: 5,
+  lineLength: 50,
+  colors: true,
+  printEmojis: true,
+  printTime: false,
+));
 
 class PreferencesPage extends StatefulWidget {
   final BluetoothDevice server;
@@ -31,18 +43,28 @@ class _PreferencesPage extends State<PreferencesPage> {
   String onButton = '1,';
   String offButton = '0,';
 
-  double _valueForIntensity = 0.0;
+  double _valueForIntensity = 100.0;
+// L+value+,
+  void _setValueForIntensity(double value) {
+    setState(() => _valueForIntensity = value);
+    String valueToSendForIntensity = "L" + _valueForIntensity.toString() + ",";
+    _sendMessage(valueToSendForIntensity);
+    log.i(_valueForIntensity);
+  }
 
-  void _setValueForIntensity(double value) =>
-      setState(() => _valueForIntensity = value);
   static const double minValueForIntensity = 100;
   static const double maxValueForIntensity = 255.0;
 
-  double _valueForDistance = 0.0;
+  double _valueForDistance = 60.0;
+// D+value+,
+  void _setValueForDistance(double value) {
+    setState(() => _valueForDistance = value);
+    String valueToSendForDistance = "D" + _valueForDistance.toString() + ",";
+    _sendMessage(valueToSendForDistance);
+    log.i(_valueForDistance);
+  }
 
-  void _setValueForDistance(double value) =>
-      setState(() => _valueForDistance = value);
-  static const double minValueForDistance = 100;
+  static const double minValueForDistance = 60;
   static const double maxValueForDistance = 500.0;
 
   bool status = true;
@@ -202,12 +224,6 @@ class _PreferencesPage extends State<PreferencesPage> {
                             min: minValueForIntensity,
                             max: maxValueForIntensity,
                             size: 100),
-//                  Slider(
-//                      value: _value,
-//                      onChanged: setValue,
-//                      min: minValue,
-//                      max: maxValue)
-
                         SizedBox(
                           child: Padding(
                             padding: EdgeInsets.only(top: 20.0),
@@ -236,12 +252,6 @@ class _PreferencesPage extends State<PreferencesPage> {
                             min: minValueForDistance,
                             max: maxValueForDistance,
                             size: 100),
-//                  Slider(
-//                      value: _value,
-//                      onChanged: setValue,
-//                      min: minValue,
-//                      max: maxValue),
-
                         SizedBox(
                           child: Padding(
                             padding: EdgeInsets.only(top: 20.0),
