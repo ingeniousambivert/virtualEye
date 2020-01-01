@@ -1,6 +1,6 @@
 # virtualeye
 
-Virtual Eye for the sightless
+Virtual Eye for the sightless people
 
 ## Getting Started
 

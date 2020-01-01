@@ -11,4 +11,4 @@ PRODUCT_NAME = virtualeye
 PRODUCT_BUNDLE_IDENTIFIER = com.virtualeye.virtualeye
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2019 com.virtualeye. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2020 com.virtualeye. All rights reserved.
