@@ -37,51 +37,12 @@ async function quickstart() {
 
     const [webresult] = await client.webDetection('./images/object.jpg');
     const webDetection = webresult.webDetection;
-    // if (webDetection.fullMatchingImages.length) {
-    // console.log(
-    //     `Full matches found: ${webDetection.fullMatchingImages.length}`
-    // );
-    // webDetection.fullMatchingImages.forEach(image => {
-    //     console.log(`  URL: ${image.url}`);
-    //     console.log(`  Score: ${image.score}`);
-    // });
-    // }
-
-    // if (webDetection.partialMatchingImages.length) {
-    // console.log(
-    //     `Partial matches found: ${webDetection.partialMatchingImages.length}`
-    // );
-    // webDetection.partialMatchingImages.forEach(image => {
-    //     console.log(`  URL: ${image.url}`);
-    //     console.log(`  Score: ${image.score}`);
-    // });
-    // }
 
     if (webDetection.webEntities.length) {
     webDetection.webEntities.forEach(webEntity => {
         console.log(`${webEntity.description}`);
     });
     }
-
-    // if (webDetection.bestGuessLabels.length) {
-    // console.log(
-    //     `Best guess labels found: ${webDetection.bestGuessLabels.length}`
-    // );
-    // webDetection.bestGuessLabels.forEach(label => {
-    //     console.log(`  Label: ${label.label}`);
-    // });
-    // }
-
-    // console.log("");
-    // console.log("land");
-    // // `gs://${bucketName}/${fileName}`
-    // const [landresult] = await client.landmarkDetection('./images/object.jpg');
-    // const landmarks = landresult.landmarkAnnotations;
-    // console.log('Landmarks:');
-    // landmarks.forEach(landmark => console.log(landmark));
-
-
-
 }
 
 quickstart().catch(console.error);
