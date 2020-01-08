@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.virtualeye.helpers.MyHelper;
+import com.virtualeye.virtualeye.helpers.MyHelper;
 
 import java.io.File;
 

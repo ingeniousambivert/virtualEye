@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.virtualeye.helpers.MyHelper;
+import com.virtualeye.virtualeye.helpers.MyHelper;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
