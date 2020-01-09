@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "nodemon-server": "nodemon ./bin/www",
+    "vision":"node visionApp.js",
     "dev": "DEBUG=virtualeye:* npm run nodemon-server"
   },
   "dependencies": {
