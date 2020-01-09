@@ -3,8 +3,7 @@ const vision = require("@google-cloud/vision");
 
 const visionRouter = express.Router();
 
-router.get("/", function(req, res, next) {
-  res.render("index", { title: "Express" });
+visionRouter.get("/vision", function(req, res, next) {
   async function quickstart() {
     const client = new vision.ImageAnnotatorClient({
       keyFilename: "APIkey.json"
@@ -46,6 +45,7 @@ router.get("/", function(req, res, next) {
       });
     }
   }
-
-  module.exports = visionRouter;
+  res.sendStatus(200);
 });
+
+module.exports = visionRouter;
