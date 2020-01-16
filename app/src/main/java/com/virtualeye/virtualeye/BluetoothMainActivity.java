@@ -1,24 +1,8 @@
-/*
- * Copyright (c) 2017 Ahmed-Abdelmeged
- *
- * github: https://github.com/Ahmed-Abdelmeged
- * email: ahmed.abdelmeged.vm@gamil.com
- * Facebook: https://www.facebook.com/ven.rto
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+package com.virtualeye.virtualeye;
 
-package app.mego.bluetoothsend;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
 
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -41,8 +25,8 @@ import java.io.IOException;
 import java.util.UUID;
 
 import static app.mego.bluetoothsend.BluetoothDevices.REQUEST_ENABLE_BT;
-
 public class BluetoothMainActivity extends AppCompatActivity {
+
 
     /**
      * UI Element
@@ -78,6 +62,7 @@ public class BluetoothMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_bluetooth_main);
 
         //get the MAC address from the Bluetooth Devices Activity
         Intent newIntent = getIntent();
@@ -149,7 +134,7 @@ public class BluetoothMainActivity extends AppCompatActivity {
                     btSocket.getOutputStream().write(data.getBytes());
                 }
             }
-               catch (IOException e) {
+            catch (IOException e) {
                 makeToast("Error. Try reconnecting");
             }
         }
@@ -192,8 +177,8 @@ public class BluetoothMainActivity extends AppCompatActivity {
     }
 
     /**
-    * Seekbar listener to adjust the intensity of vibration
-   */
+     * Seekbar listener to adjust the intensity of vibration
+     */
 
     private class intensityListener implements SeekBar.OnSeekBarChangeListener {
         int intensity ;
@@ -206,7 +191,7 @@ public class BluetoothMainActivity extends AppCompatActivity {
 
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
-           // Toast.makeText(getApplicationContext(),"Seekbar touch started", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getApplicationContext(),"Seekbar touch started", Toast.LENGTH_SHORT).show();
 
         }
 
@@ -337,3 +322,6 @@ public class BluetoothMainActivity extends AppCompatActivity {
     }
 
 }
+
+
+

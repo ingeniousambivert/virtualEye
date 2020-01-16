@@ -63,48 +63,48 @@
     </LinearLayout>
 
 
-     <LinearLayout
-         android:id="@+id/sliderGroup"
-         android:layout_below="@id/dataGroup"
-         android:layout_width="wrap_content"
-         android:layout_marginTop="70dp"
-         android:layout_height="wrap_content"
-         android:orientation="vertical"
-         android:layout_centerHorizontal="true">
+    <LinearLayout
+        android:id="@+id/sliderGroup"
+        android:layout_below="@id/dataGroup"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
 
-         <TextView
-             android:id="@+id/simpleTextViewI"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginBottom="30dp"
-             android:text="@string/intensity"
-             android:textSize="17dp"
-             android:gravity="center_horizontal"/>
-         <SeekBar
-             android:id="@+id/seekBarI"
-             android:layout_width="350dp"
-             android:layout_height="wrap_content"
-             android:max="195"
+        <TextView
+            android:id="@+id/simpleTextViewI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@string/intensity"
+            android:textSize="17dp"
+            android:gravity="center_horizontal"/>
+        <SeekBar
+            android:id="@+id/seekBarI"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:max="195"
 
             />
 
-         <TextView
-             android:id="@+id/simpleTextViewD"
-             android:layout_marginTop="70dp"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginBottom="30dp"
-             android:text="@string/distance"
-             android:textSize="17dp"
-             android:gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/simpleTextViewD"
+            android:layout_marginTop="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@string/distance"
+            android:textSize="17dp"
+            android:gravity="center_horizontal"/>
 
-         <SeekBar
-             android:id="@+id/seekBarD"
-             android:layout_width="350dp"
-             android:layout_height="wrap_content"
-             android:max="980"
+        <SeekBar
+            android:id="@+id/seekBarD"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:max="980"
 
-             />
+            />
 
-  </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
