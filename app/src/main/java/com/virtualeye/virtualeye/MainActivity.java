@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 	private String[] classNames;
+	Button btn;
 	private static final Class<?>[] CLASSES = new Class<?>[]{
 			TextActivity.class,
 			BarcodeActivity.class,
@@ -29,6 +31,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		setContentView(R.layout.activity_main);
 
 		classNames = getResources().getStringArray(R.array.class_name);
+
+		btn=(Button) findViewById(R.id.btns);
+		btn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent in=new Intent(MainActivity.this,settingActivity.class);
+				startActivity(in);
+			}
+		});
 
 		ListView listView = findViewById(R.id.list_view);
 		ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, classNames);
