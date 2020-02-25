@@ -16,11 +16,20 @@
 		android:layout_marginTop="5dp"
 		android:padding="4dp"
 		/>
+
 	<ListView
 		android:id="@+id/list_view"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:scrollbars="none"/>
+		android:layout_height="606dp"
+		android:scrollbars="none">
+	</ListView>
 
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/voicecommand"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end"
+		android:src="@drawable/ic_camera"
+		android:tooltipText="Voice command" />
 
 </LinearLayout>

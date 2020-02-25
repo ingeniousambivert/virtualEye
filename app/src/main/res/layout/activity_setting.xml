@@ -49,11 +49,13 @@
             android:layout_height="60dp"
             android:ems="10"
             android:hint="@string/enterData"
+            android:visibility="gone"
             android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/sendButton"
             android:layout_gravity="center"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/send"
