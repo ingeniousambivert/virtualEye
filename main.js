@@ -9,40 +9,32 @@ async function quickstart() {
     });
   
     // Performs label detection on the image file
-    const [result] = await client.labelDetection('./images/object.jpg');
+    const [result] = await client.labelDetection('./images/object1.jpeg');
     const labels = result.labelAnnotations;
 
     console.log('Labels:');
-    labels.forEach(label => console.log(label.description));
+    labels.forEach(label => {
+        console.log(label.description);
+    });
 
     console.log("");
     console.log("Objects");
 
-    const [objresult] = await client.objectLocalization('./images/object.jpg');
+    const [objresult] = await client.objectLocalization('./images/object1.jpeg');
     const objects = objresult.localizedObjectAnnotations;
     objects.forEach(object => {
     console.log(`${object.name}`);
     });
 
     console.log("");
-    console.log("Logo");
+    console.log("landmark");
 
-    const [logoresult] = await client.logoDetection('./images/object.jpg');
-    const logos = logoresult.logoAnnotations;
-    console.log('Logos:');
-    logos.forEach(logo => console.log(logo));
+    const [landresult] = await client.landmarkDetection('./images/object1.jpeg');
+    const landmarks = landresult.landmarkAnnotations;
+    console.log('Landmarks:');
+    landmarks.forEach(landmark => console.log(landmark));
 
-    console.log("");
-    console.log("Web");
-
-    const [webresult] = await client.webDetection('./images/object.jpg');
-    const webDetection = webresult.webDetection;
-
-    if (webDetection.webEntities.length) {
-    webDetection.webEntities.forEach(webEntity => {
-        console.log(`${webEntity.description}`);
-    });
-    }
+    console.log("Over");
 }
 
 quickstart().catch(console.error);
