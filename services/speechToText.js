@@ -5,7 +5,7 @@ const speech = require("@google-cloud/speech");
 
 // Creates a client
 const client = new speech.SpeechClient({
-  keyFilename: "../APIKeyForSpeechToText.json"
+  keyFilename: "../configs/APIKeyForSpeechToText.json"
 });
 
 /**
