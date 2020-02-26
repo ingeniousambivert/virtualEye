@@ -3,8 +3,12 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
+// Routes
 const indexRouter = require("./routes/index");
 const visionRouter = require("./routes/vision");
+
+// Listener Stream
+const speechListenerStream = require("./services/speechToText");
 
 const app = express();
 
@@ -14,6 +18,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// Set routes
 app.use("/", indexRouter);
 app.use("/", visionRouter);
+
+// Listening for commands
+speechListenerStream();
 module.exports = app;

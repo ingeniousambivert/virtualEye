@@ -1,5 +1,5 @@
 const express = require("express");
-const servie = require("../services/service");
+const service = require("../services/cloudService");
 //const vision = require("@google-cloud/vision");
 
 const visionRouter = express.Router();
@@ -7,14 +7,14 @@ const visionRouter = express.Router();
 visionRouter.get("/vision/:id", function(req, res, next) {
   let prom;
   if (req.params.id == 1) {
-    prom = servie.sendLable("./public/images/object.jpg");
+    prom = service.sendLabel("./public/images/object.jpg");
   } else if (req.params.id == 2) {
-    prom = servie.sendText("./public/images/object.jpg");
+    prom = service.sendText("./public/images/object.jpg");
   } else if (req.params.id == 3) {
-    res.send({ msg: "face recognition under constraction" });
+    res.send({ msg: "Work in progress" });
     return;
   } else {
-    res.status(400).send({ msg: "something went wrong" });
+    res.status(400).send({ msg: "Something went wrong" });
     return;
   }
   prom
@@ -22,7 +22,7 @@ visionRouter.get("/vision/:id", function(req, res, next) {
       res.send(result);
     })
     .catch(() => {
-      res.send({ msg: "something went wrong" });
+      res.send({ msg: "Something went wrong" });
     });
 });
 
