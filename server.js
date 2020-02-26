@@ -24,4 +24,6 @@ app.use("/", visionRouter);
 
 // Listening for commands
 speechListenerStream();
+
+// Exporting app for server
 module.exports = app;
