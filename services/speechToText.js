@@ -96,6 +96,7 @@ speechListenerStream = () => {
 
       lastTranscriptWasFinal = false;
     }
+    // return stdoutText;
   };
 
   const audioInputStreamTransform = new Transform({
@@ -181,6 +182,8 @@ speechListenerStream = () => {
 
   startStream();
   // [END speech_transcribe_infinite_streaming]
+  //const textToReturn = speechCallback();
+  //return stdoutText;
 };
 
 module.exports = speechListenerStream();

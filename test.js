@@ -24,7 +24,7 @@ const app = express();
 
 async function startRecognizing() {
   const client = new vision.ImageAnnotatorClient({
-    keyFilename: "../configs/APIKeyForCloud.json"
+    keyFilename: "./configs/APIKeyForCloud.json"
   });
 
   // Performs label detection on the image file

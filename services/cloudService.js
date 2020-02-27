@@ -1,4 +1,5 @@
 const vision = require("@google-cloud/vision");
+
 module.exports.sendLabel = image => {
   return new Promise(async (resolve, reject) => {
     const client = new vision.ImageAnnotatorClient({
