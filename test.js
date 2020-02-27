@@ -36,15 +36,13 @@ let pyshell = new PythonShell("test.py");
 //   console.log("finished");
 // });
 
-pyshell.send("hello");
+pyshell.send("test");
 
 pyshell.on("message", function(message) {
-  // received a message sent from the Python script (a simple "print" statement)
   console.log(message);
 });
+
 pyshell.end(function(err, code, signal) {
   if (err) throw err;
-  //console.log("The exit code was: " + code);
-  //console.log("The exit signal was: " + signal);
-  //console.log("finished");
+  console.log("finished");
 });
