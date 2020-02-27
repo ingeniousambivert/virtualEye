@@ -10,6 +10,7 @@ import 'package:virtualeye/screens/home.dart';
 import 'package:virtualeye/screens/map.dart';
 import 'package:virtualeye/screens/about.dart';
 import 'package:virtualeye/screens/mlhome.dart';
+import 'package:virtualeye/screens/upload_image.dart';
 
 // Services
 import 'package:virtualeye/services/camera_preview_scanner.dart';
@@ -44,6 +45,7 @@ class virtualEye extends StatelessWidget {
         '/camera_preview_scanner': (context) => CameraPreviewScanner(),
         '/material_barcode_scanner': (context) => MaterialBarcodeScanner(),
         '/picture_scanner': (context) => PictureScanner(),
+        '/upload_image': (context) => UploadImage(),
       },
       // To disable the debug banner on the app
       debugShowCheckedModeBanner: false,

@@ -155,23 +155,6 @@ class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
     );
   }
 
-  void _toggleCameraDirection() async {
-    if (_direction == CameraLensDirection.back) {
-      _direction = CameraLensDirection.front;
-    } else {
-      _direction = CameraLensDirection.back;
-    }
-
-    await _camera.stopImageStream();
-    await _camera.dispose();
-
-    setState(() {
-      _camera = null;
-    });
-
-    _initializeCamera();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -198,29 +181,17 @@ class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
               const PopupMenuItem<Detector>(
                 child: Text('Detect Label'),
                 value: Detector.label,
-              ),
-              const PopupMenuItem<Detector>(
-                child: Text('Detect Cloud Label'),
-                value: Detector.cloudLabel,
-              ),
-              const PopupMenuItem<Detector>(
-                child: Text('Detect Text'),
-                value: Detector.text,
-              ),
-              const PopupMenuItem<Detector>(
-                child: Text('Detect Cloud Text'),
-                value: Detector.cloudText,
-              ),
+              )
             ],
           ),
         ],
       ),
       body: _buildImage(),
       floatingActionButton: FloatingActionButton(
-        onPressed: _toggleCameraDirection,
-        child: _direction == CameraLensDirection.back
-            ? const Icon(Icons.camera_front)
-            : const Icon(Icons.camera_rear),
+        child: Icon(Icons.cloud_upload),
+        onPressed: () {
+          Navigator.pushNamed(context, '/upload_image');
+        },
       ),
     );
   }

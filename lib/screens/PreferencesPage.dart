@@ -167,16 +167,16 @@ class _PreferencesPage extends State<PreferencesPage> {
           backgroundColor: Colors.black,
           title: (isConnecting
               ? Text(
-                  'Connecting chat to ' + widget.server.name + '...',
+                  'Connecting to ' + widget.server.name + '...',
                   style: TextStyle(color: Colors.white),
                 )
               : isConnected
                   ? Text(
-                      'Live chat with ' + widget.server.name,
+                      'Send commands to ' + widget.server.name,
                       style: TextStyle(color: Colors.white),
                     )
                   : Text(
-                      'Chat log with ' + widget.server.name,
+                      'Command log with ' + widget.server.name,
                       style: TextStyle(color: Colors.white),
                     )),
           actions: <Widget>[

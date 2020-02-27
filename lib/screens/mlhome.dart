@@ -26,7 +26,7 @@ class __MLVisionListState extends State<MLVisionList> {
     return Scaffold(
       appBar: BaseAppBar(
         title: Text(
-          'MLVision',
+          'Vision',
           style: TextStyle(color: Colors.white),
         ),
         appBar: AppBar(),

@@ -179,7 +179,7 @@ class _HomePage extends State<Home> {
                 textColor: Colors.white,
                 padding: EdgeInsets.all(8.0),
                 splashColor: Colors.grey,
-                child: const Text('Go To MLVision'),
+                child: const Text('Go To Vision'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/mlhome');
                 },
